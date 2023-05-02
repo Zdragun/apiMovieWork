@@ -1,0 +1,15 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: var(--color-1c1c1b);
+    color: var(--color-ffffff);
+    padding: 15px;
+    align-items: center;
+  }
+  
+  .flex-items:nth-child(1) {
+    flex-shrink: 1;
+  }
+  
