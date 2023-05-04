@@ -1,0 +1,81 @@
+.card-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px;
+    margin: 15px;
+    flex-wrap: nowrap;
+    border: 3px solid slateblue;
+    border-radius: 20px 20px 20px 20px;
+   
+}
+
+
+.overview_cont {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+    margin-left: 30px;
+}
+
+
+
+.overview_cont .poster-img {
+    border: 1px solid transparent;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 8px 9px 39px 0px rgba(130, 130, 181, 1);
+}
+
+
+.desc-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    color:var(--color-BFD2FF);
+}
+
+.desc-cont h1 {
+    font-size: 2.7rem;
+}
+
+.description h2 {
+    font-size: 2rem;
+    padding-bottom: 10px;
+}
+
+.description p {
+    font-size: 1.5em;
+    font-weight: 400;
+}
+
+.rel-pop {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+} 
+.rel-pop span
+{
+    color: aquamarine;
+}
+.desc-items:nth-child(2)
+{
+    text-transform: uppercase;
+}
+
+.desc-items:nth-child(1) {
+    flex: 1;
+}
+
+.desc-items {
+    font-size: 1.4em;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.desc-cont > div > li
+{
+    color: aquamarine;
+    font-size: 30px;
+}

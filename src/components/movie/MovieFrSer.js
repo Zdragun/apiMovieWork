@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import MovieList from '../movieList/MovieList';
-
+import { URL } from '../../utils/variables';
 const MovieFrSer = () => {
   const [dataMovie, setDataMovie] = useState({});
   const [loading, setLoading] = useState(false);
@@ -11,8 +11,6 @@ const MovieFrSer = () => {
   const fetchMovies = async () => {
     try {
       setLoading(true);
-      const API_KEY = "ad068439ab9c59bef99a826da8ba2ac9";
-      const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
       const axiosMovies = await axios.get(URL)
       setDataMovie(axiosMovies.data);
 
