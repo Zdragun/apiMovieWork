@@ -1,11 +1,15 @@
 import React from 'react'
-import '../navbar/navbar.css'
+import '../navbar/navbar.css';
+import {AiOutlineArrowRight} from 'react-icons/ai'
 const Navbar = () => {
     return (
-        <nav class="flex-container">
-            <div class="flex-items"><h1>Filmik</h1></div>
-            <div class="flex-items">
-                <input />
+        <nav className="flex-container">
+            <div className="flex-items"><h1>Filmik</h1></div>
+            <div className="flex-items">
+                <div className='styled-input'>
+                  <input className='input-film'  type="text" placeholder='&nbsp;Enter title or desc of film' />
+                  <ul><li><AiOutlineArrowRight /></li></ul> 
+                </div>
             </div>
         </nav>
     )

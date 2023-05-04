@@ -12,7 +12,8 @@ const MovieFrSer = () => {
     try {
       setLoading(true);
       const API_KEY = "ad068439ab9c59bef99a826da8ba2ac9";
-      const axiosMovies = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
+      const URL = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+      const axiosMovies = await axios.get(URL)
       setDataMovie(axiosMovies.data);
 
     } catch (error) {

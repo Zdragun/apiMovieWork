@@ -1,4 +1,4 @@
-* { 
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,6 +16,8 @@
   --color-777777: #777777;
   --color-1c1c1b: #1c1c1b;
   --color-f7f7f7: #f7f7f7;
+  --color-gold: gold;
+  --color-BFD2FF:#BFD2FF;
 }
 
 a {
@@ -24,7 +26,7 @@ a {
 }
 
 
-.header-top-strip {
-  border-bottom: 1px solid var(--color-3b4149);
 
+body {
+  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
 }
