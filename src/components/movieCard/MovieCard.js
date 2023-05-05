@@ -17,7 +17,7 @@ const MovieCard = ({ singlemovie }) => {
           />
         </div>
         <div className='desc-cont'>
-          <div style={{ display: 'flex', listStyleType: 'none' }}><h1>{singlemovie.original_title}</h1> <li>{singlemovie.adult === false ? <MdOutlineVerifiedUser /> : <AiOutlineStop />}</li></div>
+          <div style={{ listStyleType: 'none' }}><h1>{singlemovie.original_title}{singlemovie.adult === false ? <MdOutlineVerifiedUser color={'aquamarine'} /> : <AiOutlineStop />}</h1></div>
           <div className='description'>
             <h2>Main description:</h2>
             <p>{singlemovie.overview}</p>

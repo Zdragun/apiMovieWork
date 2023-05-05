@@ -7,13 +7,13 @@
     flex-wrap: nowrap;
     border: 3px solid slateblue;
     border-radius: 20px 20px 20px 20px;
-   
+
 }
 
 
 .overview_cont {
     display: flex;
-    flex-direction: column;
+
     margin-right: 40px;
     margin-left: 20px;
 }
@@ -32,7 +32,7 @@
     flex-direction: column;
     justify-content: space-around;
     flex-grow: 1;
-    color:var(--color-BFD2FF);
+    color: var(--color-BFD2FF);
 }
 
 .desc-cont h1 {
@@ -54,13 +54,13 @@
     flex-direction: row;
     justify-content: flex-start;
 
-} 
-.rel-pop span
-{
+}
+
+.rel-pop span {
     color: aquamarine;
 }
-.desc-items:nth-child(2)
-{
+
+.desc-items:nth-child(2) {
     text-transform: uppercase;
 }
 
@@ -74,8 +74,110 @@
     font-weight: 400;
 }
 
-.desc-cont > div > li
-{
-    color: aquamarine;
-    font-size: 30px;
+
+
+@media only screen and (max-width: 1282px) {
+    .desc-cont h1 {
+        font-size: 2.3rem;
+        text-align: center;
+    }
+
+    .desc-cont h1 {
+        font-size: 2.5rem;
+    }
+
+    .description h2 {
+        font-size: 1.9rem;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .description p {
+        font-size: 1.4em;
+        font-weight: 400;
+        text-align: center;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .desc-cont h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .description h2 {
+        font-size: 1.7rem;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .description p {
+        font-size: 1.3em;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .overview_cont .poster-img {
+        width: 370px;
+        height: 480px;
+    }
+
+    .rel-pop>.desc-items {
+        font-size: 1.3em;
+    }
+}
+
+@media only screen and (max-width: 813px) {
+    .desc-cont h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .description h2 {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (max-width: 794px) {
+    .card-wrapper {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid slateblue;
+        border-radius: 20px 20px 20px 20px;
+        justify-content: center;
+                
+    }
+
+
+    .overview_cont .poster-img {
+        width: 100%;
+        height: 350px;
+    }
+
+    .desc-cont h1 {
+        font-size: 1.6rem;
+        text-align: center;
+        padding-bottom: 15px;
+        padding-top: 10px;
+    }
+
+    .description h2 {
+        font-size: 1.2rem;
+        padding-bottom: 10px;
+        text-align: start;
+    }
+
+    .description p {
+        font-size: 1em;
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .rel-pop>.desc-items {
+        font-size: 1em;
+    }
 }
