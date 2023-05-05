@@ -4,3 +4,7 @@
     background-color: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
     
 }
+.load
+{
+    color: var(--color-gold);
+}

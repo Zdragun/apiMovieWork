@@ -3,6 +3,8 @@ import '../movieCard/moviecard.css'
 import { AiOutlineStop } from 'react-icons/ai';
 import { MdOutlineVerifiedUser } from 'react-icons/md'
 const MovieCard = ({ singlemovie }) => {
+
+  
   return (
     <>
       <div className='card-wrapper'>
@@ -11,7 +13,7 @@ const MovieCard = ({ singlemovie }) => {
             alt='posterimg'
             height={500}
             width={400}
-            src={`https://image.tmdb.org/t/p/w300/${singlemovie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/original/${singlemovie.poster_path}`}
           />
         </div>
         <div className='desc-cont'>
