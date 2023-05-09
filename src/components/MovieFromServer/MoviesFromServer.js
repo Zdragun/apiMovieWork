@@ -2,10 +2,10 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import MovieList from '../MovieList/MovieList';
-import { URL } from '../../utils/constants';
+import { URL, API_KEY } from '../../utils/constants';
 import Navbar from '../Navbar/Navbar';
 
-const MovieFrSer = () => {
+const MoviesFromServer = () => {
   const [dataMovie, setDataMovie] = useState([]);
   const [masterData, setMasterData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,50 +26,65 @@ const MovieFrSer = () => {
       setLoading(false)
     }
   }
-  const searchFilter = (text) => {
-    if (text) {
-      const newData = masterData.filter((item) => {
-        const itemDataOverview = item.overview ? item.overview.toUpperCase() : ''.toUpperCase();
-        const itemDataTitle = item.original_title ? item.original_title.toUpperCase() : ''.toUpperCase();
-        const textData = text.toUpperCase();
-        return itemDataOverview.includes(textData) || itemDataTitle.includes(textData);
-      });
-      setDataMovie(newData);
-      setSearch(text)
+
+  const fetchFilter = async (text) => {
+    try {
+      setLoading(true);
+      const axiosQueryMovie = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${text}`)
+      const newData = axiosQueryMovie.data.results;
+      if (text) {
+        const filteredData = newData.filter((item) => {
+          const itemDataOverview = item.overview ? item.overview.toUpperCase() : ''.toUpperCase();
+          const itemDataTitle = item.original_title ? item.original_title.toUpperCase() : ''.toUpperCase();
+          const textData = text.toUpperCase();
+          return itemDataOverview.includes(textData) || itemDataTitle.includes(textData);
+        });
+        setDataMovie(filteredData);
+        setSearch(text);
+      }
+      else {
+        setDataMovie(newData);
+        setSearch(text);
+      }
+    } catch (error) {
+      setError(error)
     }
-    else {
-      setDataMovie(masterData);
-      setSearch(text);
+    finally {
+      setLoading(false)
     }
   }
 
- 
-   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      searchFilter(search);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!search) {
+      fetchMovies();
+    } else {
+      fetchFilter(search);
     }
-  
+  }
+
 
   useEffect(() => {
     fetchMovies();
+
   }, [])
   return (
     <>
       <Navbar
         search={search}
-        searchFilter={searchFilter}
-        handleSubmit = {handleSubmit}
-       setSearch={setSearch}
+        /*  fetchFilter={fetchFilter} */
+        handleSubmit={handleSubmit}
+        setSearch={setSearch}
       />
-        <MovieList
-          loading={loading}
-          dataMovie={dataMovie}
-          erorr={error}
-        />
-        {console.log(dataMovie)}
+      <MovieList
+        loading={loading}
+        dataMovie={dataMovie}
+        erorr={error}
+      />
     </>
   )
 }
 
-export default MovieFrSer;
+export default MoviesFromServer;
