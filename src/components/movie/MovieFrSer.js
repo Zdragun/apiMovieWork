@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import MovieList from '../movieList/MovieList';
-import { URL } from '../../utils/variables';
+import { URL } from '../../utils/constants';
 import Navbar from '../navbar/Navbar';
 
 const MovieFrSer = () => {
