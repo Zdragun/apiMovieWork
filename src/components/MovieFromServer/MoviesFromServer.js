@@ -62,14 +62,12 @@ const MovieFrSer = () => {
         handleSubmit = {handleSubmit}
        setSearch={setSearch}
       />
-      <div>
         <MovieList
           loading={loading}
           dataMovie={dataMovie}
           erorr={error}
         />
         {console.log(dataMovie)}
-      </div>
     </>
   )
 }
