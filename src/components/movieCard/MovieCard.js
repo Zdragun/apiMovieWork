@@ -1,5 +1,5 @@
 import React from 'react'
-import '../movieCard/moviecard.css'
+import '../MovieCard/moviecard.css'
 import { AiOutlineStop } from 'react-icons/ai';
 import { MdOutlineVerifiedUser } from 'react-icons/md'
 const MovieCard = ({ movie }) => {

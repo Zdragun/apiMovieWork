@@ -1,6 +1,6 @@
 import React from 'react'
-import MovieCard from '../movieCard/MovieCard'
-import '../movieList/movielist.css'
+import MovieCard from '../MovieCard/MovieCard'
+import '../MovieList/movielist.css'
 
 const MovieList = ({ dataMovie, error, loading }) => {
     return (

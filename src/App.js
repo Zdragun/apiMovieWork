@@ -1,13 +1,13 @@
 import './App.css';
 
-import MovieFrSer from "./components/movie/MovieFrSer.js";
+import MoviesFromServer from "./components/MovieFromServer/MoviesFromServer.js";
 
 
 function App() {
 
   return (
     <>
-      <MovieFrSer />
+      <MoviesFromServer />
     </>
   );
 }
