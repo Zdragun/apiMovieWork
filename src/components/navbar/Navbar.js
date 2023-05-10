@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Navbar/navbar.css';
+import '../Navbar/NavBar.css';
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
 const Navbar = ({ search, handleSubmit,setSearch }) => {
