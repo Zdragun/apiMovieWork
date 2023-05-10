@@ -1,9 +1,9 @@
 import React from 'react'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import MovieList from '../movieList/MovieList';
+import MovieList from '../MovieList/MovieList';
 import { URL } from '../../utils/constants';
-import Navbar from '../navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
 
 const MovieFrSer = () => {
   const [dataMovie, setDataMovie] = useState([]);
@@ -62,14 +62,12 @@ const MovieFrSer = () => {
         handleSubmit = {handleSubmit}
        setSearch={setSearch}
       />
-      <div>
         <MovieList
           loading={loading}
           dataMovie={dataMovie}
           erorr={error}
         />
         {console.log(dataMovie)}
-      </div>
     </>
   )
 }

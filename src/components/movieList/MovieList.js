@@ -1,6 +1,6 @@
-import React from 'react'
-import MovieCard from '../movieCard/MovieCard'
-import '../movieList/movielist.css'
+import React, { Fragment } from 'react'
+import MovieCard from '../MovieCard/MovieCard'
+import '../MovieList/movielist.css'
 
 const MovieList = ({ dataMovie, error, loading }) => {
     return (
@@ -8,9 +8,9 @@ const MovieList = ({ dataMovie, error, loading }) => {
             {loading ? <h1 className='load'>Wait Data is Loading ...</h1> :
                 error ? <h1 className='error'>Sorry the error is occurred</h1> :
                     dataMovie?.map((movie) => (
-                        <div key={movie.id}>
+                        <Fragment key={movie.id}>
                         <MovieCard movie={movie} />
-                        </div>
+                        </Fragment>
                     ))
             }
         </main>
