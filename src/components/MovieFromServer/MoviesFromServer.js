@@ -7,7 +7,6 @@ import Navbar from '../Navbar/Navbar';
 
 const MoviesFromServer = () => {
   const [dataMovie, setDataMovie] = useState([]);
-  const [masterData, setMasterData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState('')
@@ -18,7 +17,6 @@ const MoviesFromServer = () => {
       setLoading(true);
       const axiosMovies = await axios.get(URL)
       setDataMovie(axiosMovies.data.results);
-      setMasterData(axiosMovies.data.results)
     } catch (error) {
       setError(error)
     }
@@ -34,8 +32,8 @@ const MoviesFromServer = () => {
       const newData = axiosQueryMovie.data.results;
       if (text) {
         const filteredData = newData.filter((item) => {
-          const itemDataOverview = item.overview ? item.overview.toUpperCase() : ''.toUpperCase();
-          const itemDataTitle = item.original_title ? item.original_title.toUpperCase() : ''.toUpperCase();
+          const itemDataOverview = item.overview && item.overview.toUpperCase() 
+          const itemDataTitle = item.original_title && item.original_title.toUpperCase() 
           const textData = text.toUpperCase();
           return itemDataOverview.includes(textData) || itemDataTitle.includes(textData);
         });
@@ -70,6 +68,13 @@ const MoviesFromServer = () => {
     fetchMovies();
 
   }, [])
+
+
+  const handleReset = () =>
+  {
+    setSearch('');
+    fetchMovies();
+  }
   return (
     <>
       <Navbar
@@ -77,6 +82,7 @@ const MoviesFromServer = () => {
         /*  fetchFilter={fetchFilter} */
         handleSubmit={handleSubmit}
         setSearch={setSearch}
+        handleReset={handleReset}
       />
       <MovieList
         loading={loading}
