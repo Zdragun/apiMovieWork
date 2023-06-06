@@ -1,1 +1,1 @@
-- [DEMO LINK](https://zdragun.github.io/apiMovieWork/)
+- [Link to Deployed app on Github Pages](https://zdragun.github.io/apiMovieWork/)
