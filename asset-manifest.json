@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/apiMovieWork/static/css/main.ccb4d8a4.css",
+    "main.js": "/apiMovieWork/static/js/main.bc237cfe.js",
+    "index.html": "/apiMovieWork/index.html",
+    "main.ccb4d8a4.css.map": "/apiMovieWork/static/css/main.ccb4d8a4.css.map",
+    "main.bc237cfe.js.map": "/apiMovieWork/static/js/main.bc237cfe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ccb4d8a4.css",
+    "static/js/main.bc237cfe.js"
+  ]
+}
