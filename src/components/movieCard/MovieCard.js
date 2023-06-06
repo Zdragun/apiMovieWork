@@ -1,35 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../MovieCard/MovieCard.css'
-import { AiOutlineDelete, AiOutlineStop } from 'react-icons/ai';
+import { AiOutlineStop } from 'react-icons/ai';
 import { MdOutlineVerifiedUser } from 'react-icons/md';
-import {AiOutlineHeart,aiOutlineDe} from 'react-icons/ai'
-import axios from 'axios';
-import { API_KEY } from '../../utils/constants'
-import noimg from '../../public/images/noimg.jpg'
-/* import Rating from 'react-rating-stars-component'; */
-const MovieCard = ({ movie }) => {
-  const [wishlist, setWishlist] = useState([]);
-  const [wish,setWish] = useState(false)
-  const [count, setCount] = useState(0);
+import {AiOutlineHeart,AiFillHeart} from 'react-icons/ai';
+import noimg from '../../public/images/noimg.jpg';
+import Rating from 'react-rating-stars-component';
+const MovieCard = ({ movie,handleWishList }) => {
 
-  const addToWishlist = (movie) => {
-    const isAlreadyInWishlist = wishlist.find((item)=>item === movie);
-
-    if (isAlreadyInWishlist) {
-      setWishlist([...wishlist.filter((item)=> item !== movie)])
-      setWish(false);
-      setCount((previousCount) => (Math.max(previousCount -= 1,0)));
-    } else {
-      setWishlist([...wishlist, movie]);
-      setWish(true);
-      setCount((previousCount) => previousCount += 1);
-    }
-  };
-
-
-  useEffect(() => {
-   console.log(wishlist);
-  }, [wishlist]);
 
 
   return (
@@ -46,23 +23,24 @@ const MovieCard = ({ movie }) => {
         <div className='desc-cont'>
           <div style={{ listStyleType: 'none',display:'flex'}}>
             <h1 style={{display:'flex',flex:1}}>{movie.original_title}
-              {movie.adult === false ? <MdOutlineVerifiedUser color={'aquamarine'} /> : <AiOutlineStop />}
+              <span>{movie.adult === false ? <MdOutlineVerifiedUser color={'aquamarine'} /> : <AiOutlineStop />}</span>
             </h1>
-           <h1  style={{color: wish ? "#FFC0CB" : "#FFFFFF"}} ><AiOutlineHeart onClick={()=>{addToWishlist(movie)}} /></h1>
-            <p>{count}</p>
+            { movie.inWishList ? <button className='heart-button butt1'><AiFillHeart onClick={()=>handleWishList(movie)} /></button> : <button className='heart-button butt2'><AiOutlineHeart   onClick={()=>handleWishList(movie)} /></button>}
+
           </div>
           <div className='description'>
             <h2>Main description:</h2>
             <p>{movie.overview}</p>
           </div>
           <div className="rel-pop">
-            <h3 className='desc-items'>Popularity:{movie?.vote_average}<span>
-              {/*   <Rating
-              count={10}
+            <h3 className='desc-items'><span>
+               <Rating
+              count={5}
               size={24}
-              value={rating}
-              onChange={handleRatingChange}
-            /> */}</span></h3>
+              value={movie?.vote_average/2}
+              isHalf={true}
+              edit={false}
+            /> </span></h3>
             <h3 className='desc-items'>{movie.release_date + ` (${movie.original_language})`}</h3>
           </div>
         </div>
@@ -71,4 +49,4 @@ const MovieCard = ({ movie }) => {
   )
 }
 
-export default MovieCard
+export default MovieCard;

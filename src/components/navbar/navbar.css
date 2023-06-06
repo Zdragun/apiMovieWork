@@ -53,21 +53,20 @@ nav {
 
 }
 
-ul {
-  list-style: none;
-}
 
-.styled-input li {
+
+.styled-input button {
   position: absolute;
   content: '';
   font-size: 0.8rem;
   right: 0;
   top: 6.6px;
-  
+  background-color: transparent;
+  border: 0;
   color: var(--color-BFD2FF);
 }
 
-.styled-input li:hover
+.styled-input button:hover
 {
   color: var(--color-gold);
 }

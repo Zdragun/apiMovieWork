@@ -4,46 +4,38 @@ import { useState, useEffect } from 'react';
 import MovieList from '../MovieList/MovieList';
 import { URL, API_KEY } from '../../utils/constants';
 import Navbar from '../Navbar/Navbar';
+import { toast } from 'react-toastify';
 
 const MoviesFromServer = () => {
   const [dataMovie, setDataMovie] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
+  const [wishList, setWishList] = useState([]);
 
 
   const fetchMovies = async () => {
     try {
       setLoading(true);
-      const axiosMovies = await axios.get(URL)
-      setDataMovie(axiosMovies.data.results);
+      const axiosMovies = await axios.get(URL);
+      const wishListLocalStorage = localStorage.wishList ? JSON.parse(localStorage.wishList) : [];
+      setWishList(wishListLocalStorage);
+      setDataMovie(axiosMovies.data.results.map(item => wishListLocalStorage.some((movie)=>movie.id === item.id)  ? { ...item, inWishList: true } : item));
+
     } catch (error) {
-      setError(error)
+      setError(error);
     }
     finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
-  const fetchFilter = async (text) => {
+  const fetchFilter = async () => {
     try {
       setLoading(true);
-      const axiosQueryMovie = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${text}`)
+      const axiosQueryMovie = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`)
       const newData = axiosQueryMovie.data.results;
-      if (text) {
-        const filteredData = newData.filter((item) => {
-          const itemDataOverview = item.overview && item.overview.toUpperCase() 
-          const itemDataTitle = item.original_title && item.original_title.toUpperCase() 
-          const textData = text.toUpperCase();
-          return itemDataOverview.includes(textData) || itemDataTitle.includes(textData);
-        });
-        setDataMovie(filteredData);
-        setSearch(text);
-      }
-      else {
-        setDataMovie(newData);
-        setSearch(text);
-      }
+      setDataMovie(newData.map(item => wishList.some((movie)=> movie.id === item.id) ? { ...item, inWishList: true } : item));
     } catch (error) {
       setError(error)
     }
@@ -52,39 +44,51 @@ const MoviesFromServer = () => {
     }
   }
 
+  const handleWishList = (movie) => {
+    const inWishList = wishList.some((item) => item?.id === movie?.id);
+    let newWishList = wishList;
 
+    if (inWishList) {
+      newWishList = newWishList.filter((item) => item?.id !== movie?.id);
+      setDataMovie(prevData => prevData.map(item => item?.id === movie?.id ? { ...item, inWishList: false } : item));
+      toast.error("Removed from Wishlist Successfully");
+    } else {
+      newWishList = [...newWishList, movie];
+      setDataMovie(prevData => prevData.map(item => item?.id === movie?.id ? { ...item, inWishList: true } : item));
+      toast.success("Added to Wishlist Successfully");
+    }
+    setWishList(newWishList);
+    localStorage.wishList = JSON.stringify(newWishList);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!search) {
-      fetchMovies();
-    } else {
-      fetchFilter(search);
-    }
+      fetchFilter();
+      toast.info(`Finded film:${search} successfully`)
+    
   }
 
 
   useEffect(() => {
     fetchMovies();
-
   }, [])
 
 
-  const handleReset = () =>
-  {
+  const handleReset = () => {
     setSearch('');
     fetchMovies();
   }
+
   return (
     <>
       <Navbar
         search={search}
-        /*  fetchFilter={fetchFilter} */
         handleSubmit={handleSubmit}
         setSearch={setSearch}
         handleReset={handleReset}
       />
       <MovieList
+        handleWishList={handleWishList}
         loading={loading}
         dataMovie={dataMovie}
         erorr={error}

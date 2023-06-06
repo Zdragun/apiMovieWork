@@ -74,6 +74,14 @@
     font-weight: 400;
 }
 
+.heart-button
+{
+    font-size: 38px;
+    background-color: transparent;
+    border: 0;
+    color: var(--color-BFD2FF);
+}
+
 
 
 @media only screen and (max-width: 1282px) {
@@ -103,18 +111,19 @@
 
 @media only screen and (max-width: 1024px) {
     .desc-cont h1 {
-        font-size: 2rem;
-        text-align: center;
+        font-size: 1.7rem;
+        text-align: start;
+        flex: auto;
     }
 
     .description h2 {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         padding-bottom: 10px;
         text-align: center;
     }
 
     .description p {
-        font-size: 1.3em;
+        font-size: 1.2em;
         font-weight: 400;
         text-align: center;
     }
@@ -125,13 +134,18 @@
     }
 
     .rel-pop>.desc-items {
-        font-size: 1.3em;
+        font-size: 1.1em;
+    }
+    .heart-button
+    {
+        font-size: 1.7rem;
+        display: flex;
     }
 }
 
 @media only screen and (max-width: 813px) {
     .desc-cont h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         text-align: center;
     }
 
@@ -139,7 +153,7 @@
         font-size: 1.6rem;
         text-align: center;
     }
-
+   
 }
 
 @media only screen and (max-width: 794px) {
@@ -148,27 +162,40 @@
         flex-direction: column;
         border: 3px solid slateblue;
         border-radius: 20px 20px 20px 20px;
-        justify-content: center;
+        padding: 0;
                 
     }
 
+    .overview_cont {
+        
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+        border: 0;
+    }
 
     .overview_cont .poster-img {
         width: 100%;
-        height: 350px;
+        height: auto;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+       
     }
-
+    .desc-cont 
+    {
+        padding: 15px;
+    }
     .desc-cont h1 {
-        font-size: 1.6rem;
-        text-align: center;
+        font-size: 1.4rem;
         padding-bottom: 15px;
         padding-top: 10px;
+      
     }
 
     .description h2 {
         font-size: 1.2rem;
         padding-bottom: 10px;
-        text-align: start;
+        text-align: center;
     }
 
     .description p {
@@ -180,5 +207,11 @@
 
     .rel-pop>.desc-items {
         font-size: 1em;
+        padding: 10px;
+    }
+
+    .heart-button
+    {
+        font-size: 24px;
     }
 }
