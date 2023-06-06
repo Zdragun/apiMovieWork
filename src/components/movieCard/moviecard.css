@@ -10,13 +10,11 @@
 
 }
 
-
 .overview_cont {
     display: flex;
     margin-right: 40px;
     margin-left: 20px;
 }
-
 
 .overview_cont .poster-img {
     border: 1px solid rgba(130, 130, 181, 1);
