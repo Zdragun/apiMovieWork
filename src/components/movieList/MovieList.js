@@ -16,5 +16,4 @@ const MovieList = ({ dataMovie, error, loading,handleWishList }) => {
         </main>
     )
 }
-
 export default MovieList

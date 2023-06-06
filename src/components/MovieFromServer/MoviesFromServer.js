@@ -65,7 +65,6 @@ const MoviesFromServer = () => {
     e.preventDefault();
       fetchFilter();
       toast.info(`Finded film:${search} successfully`)
-    
   }
 
 

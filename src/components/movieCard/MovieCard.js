@@ -5,10 +5,8 @@ import { MdOutlineVerifiedUser } from 'react-icons/md';
 import {AiOutlineHeart,AiFillHeart} from 'react-icons/ai';
 import noimg from '../../public/images/noimg.jpg';
 import Rating from 'react-rating-stars-component';
+
 const MovieCard = ({ movie,handleWishList }) => {
-
-
-
   return (
     <>
       <div className='card-wrapper'>
