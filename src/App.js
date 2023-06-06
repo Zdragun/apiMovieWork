@@ -1,5 +1,4 @@
 import './App.css';
-
 import MoviesFromServer from "./components/MovieFromServer/MoviesFromServer.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

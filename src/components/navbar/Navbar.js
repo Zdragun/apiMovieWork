@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import '../Navbar/NavBar.css';
-import { AiOutlineArrowRight } from 'react-icons/ai'
-import {MdOutlineLockReset} from 'react-icons/md'
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import {MdOutlineLockReset} from 'react-icons/md';
 
 const Navbar = ({ search, handleSubmit,setSearch,handleReset }) => {
     return (

@@ -37,10 +37,10 @@ const MoviesFromServer = () => {
       const newData = axiosQueryMovie.data.results;
       setDataMovie(newData.map(item => wishList.some((movie)=> movie.id === item.id) ? { ...item, inWishList: true } : item));
     } catch (error) {
-      setError(error)
+      setError(error);
     }
     finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 

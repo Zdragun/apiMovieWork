@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
-import MovieCard from '../MovieCard/MovieCard'
-import '../MovieList/MovieList.css'
+import React, { Fragment } from 'react';
+import MovieCard from '../MovieCard/MovieCard';
+import '../MovieList/MovieList.css';
 
 const MovieList = ({ dataMovie, error, loading,handleWishList }) => {
     return (
