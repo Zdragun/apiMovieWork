@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../MovieCard/MovieCard.css';
 import { AiOutlineStop } from 'react-icons/ai';
 import { MdOutlineVerifiedUser } from 'react-icons/md';
